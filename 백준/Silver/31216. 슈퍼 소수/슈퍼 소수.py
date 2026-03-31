@@ -8,7 +8,7 @@ def sieve_of_eratosthenes():
         if sieve[i]:
             sieve[i*i : 318138 : i] = [False] * len(range(i*i, 318138, i))
 
-    primes = [i for i, is_prime in enumerate(sieve) if is_prime]
+    primes = [i for i in range(2, 318138) if sieve[i]]
     sup = []
     for idx, prime in enumerate(primes):
         if sieve[idx+1]:

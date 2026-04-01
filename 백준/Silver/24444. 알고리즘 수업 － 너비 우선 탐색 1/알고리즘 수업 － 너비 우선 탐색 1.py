@@ -1,20 +1,22 @@
 import sys
 from collections import deque
-input = sys.stdin.readline
 
 def solve():
-    n,m,r = map(int,input().split())
-    graph = {key : [] for key in range(1,n+1)}
+    inp = map(int, sys.stdin.read().split())
+    n = next(inp)
+    m = next(inp)
+    r = next(inp)
+    graph = [[] for _ in range(n+1)]
 
     for _ in range(m):
-        c1, c2 = map(int, input().split())
+        c1 = next(inp)
+        c2 = next(inp)
         graph[c1].append(c2)
         graph[c2].append(c1)
     for i in range(1,n+1):
         graph[i].sort()
 
     visited = [0] * (n+1)
-
     queue = deque([r])
     i = 1
     visited[r] = i

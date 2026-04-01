@@ -5,7 +5,7 @@ input = sys.stdin.readline
 def solve():
     n,m,r = map(int,input().split())
     graph = {key : [] for key in range(1,n+1)}
-    res = {key : 0 for key in range(1,n+1)}
+
     for _ in range(m):
         c1, c2 = map(int, input().split())
         graph[c1].append(c2)
@@ -13,19 +13,17 @@ def solve():
     for i in range(1,n+1):
         graph[i].sort()
 
-    visited = [False] * (n+1)
+    visited = [0] * (n+1)
 
     queue = deque([r])
-    visited[r] = True
     i = 1
-    res[r] = i
+    visited[r] = i
     while(queue):
         cur = queue.popleft()
         for post in graph[cur]:
             if not visited[post]:
                 i+=1
                 queue.append(post)
-                visited[post] = True
-                res[post] = i
-    print(*res.values(), sep='\n')
+                visited[post] = i
+    sys.stdout.write('\n'.join(map(str,visited[1:])))
 solve()

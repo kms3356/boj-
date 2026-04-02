@@ -1,28 +1,20 @@
 import sys
-input = sys.stdin.readline
+
 def solve():
-    n,m= map(int, input().split())
-    a = sorted(map(int, input().split()))
-    ans = 0
-    flag = False
+    min = m
     for i in range(n):
-        left = i+1
-        right = n-1
-        while left < right:
-            s = a[i] + a[left] + a[right]
-            if s == m:
-                ans = s
-                flag = True
-                break
-            elif s < m:
-                left += 1
-                if s > ans:
-                    ans = s
-            else:
-                right -= 1
-        if flag:
-            break
-    print(ans)
+        for j in range(i+1,n):
+            for k in range(j+1,n):
+                cur = m-(nums[i]+nums[j]+nums[k])
+                if 0 < cur < min:
+                    min = cur
+                    ans = nums[i]+nums[j]+nums[k]
+                elif cur == 0:
+                    ans = nums[i]+nums[j]+nums[k]
+                    return ans
+    return ans
 
-
-solve()
+n,m = map(int, sys.stdin.readline().split())
+nums = list(map(int, sys.stdin.readline().split()))
+ans = solve()
+print(ans)

@@ -16,5 +16,5 @@ def solve():
                 res += Sum.pop()
                 stack.pop()
         except: continue
-    print(res)
+    sys.stdout.write(str(res))
 solve()

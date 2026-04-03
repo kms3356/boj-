@@ -4,15 +4,17 @@ def solve():
     n = next(inp)
     res = 0
     stack = []
+    Sum = []
     for _ in range(n):
         f = next(inp)
         if f == 1:
-            stack.append([next(inp),next(inp)])
+            Sum.append(next(inp))
+            stack.append(next(inp))
         if stack:
-            stack[-1][1] -= 1
-            if stack[-1][1] == 0:
-                res += stack[-1][0]
+            stack[-1] -= 1
+            if stack[-1] == 0:
+                res += Sum.pop()
                 stack.pop()
-
+                
     print(res)
 solve()

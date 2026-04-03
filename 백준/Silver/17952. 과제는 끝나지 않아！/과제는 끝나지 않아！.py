@@ -10,11 +10,11 @@ def solve():
         if f == 1:
             Sum.append(next(inp))
             stack.append(next(inp))
-        if stack:
+        try:
             stack[-1] -= 1
             if stack[-1] == 0:
                 res += Sum.pop()
                 stack.pop()
-                
+        except: continue
     print(res)
 solve()

@@ -1,6 +1,5 @@
 import sys
 input = sys.stdin.readline
-from collections import deque
 def solve():
     n = int(input())
     res = [[] for _ in range(n+1)]
@@ -10,10 +9,10 @@ def solve():
         res[n2].append(n1)
     
     visited = [0] * (n+1)
-    queue = deque([1])
+    queue = [1]
     visited[1] = 1
     while(queue):
-        cur = queue.popleft()
+        cur = queue.pop()
 
         for post in res[cur]:
             if not visited[post]:

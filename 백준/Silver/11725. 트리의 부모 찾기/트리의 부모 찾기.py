@@ -19,5 +19,5 @@ def solve():
             if not visited[post]:
                 queue.append(post)
                 visited[post] = cur
-    print(*visited[2:], sep='\n')
+    sys.stdout.write('\n'.join(map(str, visited[2:])))
 solve()

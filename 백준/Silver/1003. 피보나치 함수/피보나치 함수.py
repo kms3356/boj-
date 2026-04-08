@@ -8,4 +8,4 @@ for i in range(2,41):
 
 for _ in range(t):
     idx = next(inp)
-    print(*res[idx])
+    sys.stdout.write(' '.join(map(str, res[idx]))+'\n')

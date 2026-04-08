@@ -1,5 +1,4 @@
 import sys
-
 def solve():
     n,m = map(int, sys.stdin.readline().split())
     nums = sorted(map(int, sys.stdin.readline().split()))
@@ -19,5 +18,4 @@ def solve():
             else:
                 right -= 1
     return ans
-
 print(solve())

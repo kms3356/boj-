@@ -7,5 +7,4 @@ for i in range(2,41):
     res[i] = [res[i-1][0] + res[i-2][0], res[i-1][1] + res[i-2][1]]
 
 for _ in range(t):
-    idx = next(inp)
-    sys.stdout.write(' '.join(map(str, res[idx]))+'\n')
+    sys.stdout.write(' '.join(map(str, res[next(inp)]))+'\n')

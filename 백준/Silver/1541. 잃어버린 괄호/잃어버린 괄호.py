@@ -1,5 +1,4 @@
 import sys
-
 def solve():
     inp = sys.stdin.readline()
     res = 0

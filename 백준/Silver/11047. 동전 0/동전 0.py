@@ -1,5 +1,4 @@
 import sys
-
 def solve():
     inp = map(int, sys.stdin.read().split())
     n = next(inp)

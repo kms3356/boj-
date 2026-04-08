@@ -1,13 +1,13 @@
 import sys
-input = sys.stdin.readline
+def solve():
+    inp = map(int, sys.stdin.read().split())
+    n = next(inp)
+    Sum = next(inp)
+    Max = Sum
+    for cur in inp:
+        if Sum > 0: Sum += cur
+        else: Sum = cur
 
-n = int(input())
-nums = map(int,input().split())
-res = [next(nums)] + [0] * (n-1)
-for i in range(1,n):
-    cur = next(nums)
-    ma = max(res[i-1] + cur, cur)
-    res[i] = ma
-
-
-print(max(res))
+        if Sum > Max: Max = Sum
+    print(Max)
+solve()

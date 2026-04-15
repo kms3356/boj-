@@ -1,18 +1,13 @@
 import sys
 def solve():
-    inp = iter(sys.stdin.read().split())
-    n, m = int(next(inp)), int(next(inp))
+    inp = sys.stdin.read().split()
+    n, m = int(inp[0]), int(inp[1])
     dic = {}
     idx = 1
-    res = []
-    for _ in range(n):
-        name = next(inp)
-        i = str(idx)
-        dic[name] = i
-        dic[i] = name
-        idx += 1
-    for _ in range(m):
-        q = next(inp)
-        res.append(dic[q])
+    for i,val in enumerate(inp[2:2+n], 1):
+        idx = str(i)
+        dic[val] = idx
+        dic[idx] = val
+    res = [dic[v] for v in inp[2+n:]]
     print("\n".join(res))
 solve()
